@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    class VechileType
+    public class VechileType
     {
         public string TypeName { get; set; }
         public double TaxCoefficient { get; set; }
