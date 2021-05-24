@@ -6,35 +6,52 @@ namespace Autopark
     {
         static void Main(string[] args)
         {
-            VehicleType[] vechiles = new VehicleType[] {
+            VehicleType[] vehicleTypes = new VehicleType[] {
                 new VehicleType("Bus", 1.2),
                 new VehicleType("Car", 1.0),
                 new VehicleType("Rink", 1.5),
                 new VehicleType("Tractor", 1.2)
             };
-            double maxTaxCoefficient = vechiles[0].TaxCoefficient;
-            double sumTaxCoefficient = 0;
 
-            for (int i = 0; i < vechiles.Length; i++)
+            Vehicle[] vehicles = new Vehicle[] {
+                new Vehicle(vehicleTypes[0],"VW Crafter", "5427 AX-7", 2022, 2015, 376000, Color.Blue),
+                new Vehicle(vehicleTypes[0],"VW Crafter", "6427 AA-7", 2500, 2014, 227010, Color.White),
+                new Vehicle(vehicleTypes[0],"Electric Bus E321", "6785 BA-7", 12080, 2019, 20451, Color.Green),
+                new Vehicle(vehicleTypes[1],"Golf 5", "8682 AX-7", 1200, 2006, 230451, Color.Gray),
+                new Vehicle(vehicleTypes[1],"Tesla Model S 70 D", "E001 AA-7", 2200, 2019, 10454, Color.White),
+                new Vehicle(vehicleTypes[2],"Hamm HD 12 VV", null, 3000, 2016, 122, Color.Yellow),
+                new Vehicle(vehicleTypes[2],"МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Color.Red)
+            };
+
+            Printer.PrintArray(vehicles);
+            Array.Sort(vehicles);
+            Console.WriteLine();
+            Printer.PrintArray(vehicles);
+            Console.WriteLine("\n");
+
+            int indexOfMinMileage = 0;
+            int indexOfMaxMileage = 0;
+            double minMileage = vehicles[0].Mileage;
+            double maxMileage = vehicles[0].Mileage;
+
+            for (int i = 0; i < vehicles.Length; i++)
             {
-                if (vechiles[i].TaxCoefficient > maxTaxCoefficient)
+                if (maxMileage < vehicles[i].Mileage)
                 {
-                    maxTaxCoefficient = vechiles[i].TaxCoefficient;
+                    maxMileage = vehicles[i].Mileage;
+                    indexOfMaxMileage = i;
                 }
-                if (i == vechiles.Length - 1)
+                if (minMileage > vehicles[i].Mileage)
                 {
-                    vechiles[i].TaxCoefficient = 1.3;
+                    minMileage = vehicles[i].Mileage;
+                    indexOfMinMileage = i;
                 }
-                sumTaxCoefficient += vechiles[i].TaxCoefficient;
-                vechiles[i].Display();
             }
-            double averageTaxCoefficient = sumTaxCoefficient * 1.0 / vechiles.Length;
-            foreach (var vechile in vechiles)
-            {
-                Console.WriteLine(vechile);
-            }
-            Console.WriteLine($"Average tax coefficient is {averageTaxCoefficient:F2}.");
-            Console.WriteLine($"Maximum tax coefficient is {maxTaxCoefficient}.");
+            Console.WriteLine("Vehicle with minimum maileage is:");
+            Console.WriteLine(vehicles[indexOfMinMileage]);
+            Console.WriteLine("Vehicle with maximum maileage is:");
+            Console.WriteLine(vehicles[indexOfMaxMileage]);
+
         }
     }
 }
