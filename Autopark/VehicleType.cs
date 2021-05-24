@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    public class VechileType
+    public class VehicleType
     {
         public string TypeName { get; set; }
         public double TaxCoefficient { get; set; }
 
-        public VechileType(string type, double taxCoefficient = 1.0)
+        public VehicleType(string type, double taxCoefficient = 1.0)
         {
             this.TypeName = type;
             this.TaxCoefficient = taxCoefficient;

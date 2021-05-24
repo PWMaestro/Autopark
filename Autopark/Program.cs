@@ -6,11 +6,11 @@ namespace Autopark
     {
         static void Main(string[] args)
         {
-            VechileType[] vechiles = new VechileType[] {
-                new VechileType("Bus", 1.2),
-                new VechileType("Car", 1.0),
-                new VechileType("Rink", 1.5),
-                new VechileType("Tractor", 1.2)
+            VehicleType[] vechiles = new VehicleType[] {
+                new VehicleType("Bus", 1.2),
+                new VehicleType("Car", 1.0),
+                new VehicleType("Rink", 1.5),
+                new VehicleType("Tractor", 1.2)
             };
             double maxTaxCoefficient = vechiles[0].TaxCoefficient;
             double sumTaxCoefficient = 0;
