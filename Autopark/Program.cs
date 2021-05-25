@@ -8,9 +8,10 @@ namespace Autopark
         {
             Printer.PrintArray(Vehicle.vehicles);
             Console.WriteLine();
-            if (Vehicle.IsSameVehiclesExist())
+            var vehicles = Vehicle.GetSameVehicles();
+            if (vehicles.Length != 0)
             {
-                Printer.PrintArray(Vehicle.GetSameVehicles());
+                Printer.PrintArray(vehicles);
             }
             else
             {

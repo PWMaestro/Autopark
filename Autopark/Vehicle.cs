@@ -83,54 +83,24 @@ namespace Autopark
             return vehicles[indexOfMaxMileage];
         }
 
-        public static bool IsSameVehiclesExist()
+        private static HashSet<int> GetSameVehiclesIndexes()
         {
+            HashSet<int> indexes = new();
             for (int i = 0; i < vehicles.Length; i++)
             {
                 for (int j = i + 1; j < vehicles.Length; j++)
                 {
                     if (vehicles[i].Equals(vehicles[j]))
                     {
-                        return true;
+                        indexes.Add(i);
+                        indexes.Add(j);
                     }
                 }
             }
-            return false;
+            return indexes;
         }
 
-        private static int[] GetSameVehiclesIndexes()
-        {
-            List<int> indexes = new();
-            for (int i = 0; i < vehicles.Length; i++)
-            {
-                for (int j = i + 1; j < vehicles.Length; j++)
-                {
-                    if (vehicles[i].Equals(vehicles[j]))
-                    {
-                        if (!indexes.Contains(i))
-                        {
-                            indexes.Add(i);
-                        }
-                        if (!indexes.Contains(j))
-                        {
-                            indexes.Add(j);
-                        }
-                    }
-                }
-            }
-            return indexes.ToArray();
-        }
-
-        public static Vehicle[] GetSameVehicles()
-        {
-            int[] sameVehiclesIndexes = GetSameVehiclesIndexes();
-            Vehicle[] sameVehicles = new Vehicle[sameVehiclesIndexes.Length];
-            for (int i = 0; i < sameVehicles.Length; i++)
-            {
-                sameVehicles[i] = vehicles[sameVehiclesIndexes[i]];
-            }
-            return sameVehicles;
-        }
+        public static Vehicle[] GetSameVehicles() => GetSameVehiclesIndexes().Select(i => vehicles[i]).ToArray();
 
         public double GetCalcTaxPerMonth()
         {   
@@ -155,8 +125,7 @@ namespace Autopark
 
         public override bool Equals(object obj)
         {
-            Vehicle vehicle = obj as Vehicle;
-            return vehicle != null
+            return obj is Vehicle vehicle
                 && Type.TypeName.Equals(vehicle.Type.TypeName)
                 && ModelName.Equals(vehicle.ModelName);
         }
