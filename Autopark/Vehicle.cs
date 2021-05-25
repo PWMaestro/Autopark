@@ -17,9 +17,9 @@ namespace Autopark
             new Vehicle(VehicleType.vehicleTypes[2],"Hamm HD 12 VV", null, 3000, 2016, 122, Color.Yellow),
             new Vehicle(VehicleType.vehicleTypes[2],"МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Color.Red)
         };
-        public readonly VehicleType type;
-        public readonly int manufactureYear;
-        public readonly string modelName;
+        public VehicleType Type { get; }
+        public string ModelName { get; }
+        public int ManufactureYear { get; }
         public string RegistrationNumber { get; set; }
         public double TankVolume { get; set; }
         public double Mileage { get; set; }
@@ -39,11 +39,11 @@ namespace Autopark
             double mileage,
             Color color) 
         {
-            this.type = type;
-            this.modelName = modelName;
+            this.Type = type;
+            this.ModelName = modelName;
             this.RegistrationNumber = registrationNumber;
             this.Weight = weight;
-            this.manufactureYear = manufactureYear;
+            this.ManufactureYear = manufactureYear;
             this.Mileage = mileage;
             this.Color = color;
         }
@@ -82,18 +82,18 @@ namespace Autopark
 
         public double GetCalcTaxPerMonth()
         {   
-            return this.Weight * 0.0013 + type.TaxCoefficient * 30 + 5;
+            return this.Weight * 0.0013 + Type.TaxCoefficient * 30 + 5;
         }
 
         public override string ToString()
         {
             return String.Format(
                 "{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                type.TypeName,
-                modelName,
+                Type.TypeName,
+                ModelName,
                 RegistrationNumber,
                 Weight,
-                manufactureYear,
+                ManufactureYear,
                 Mileage,
                 TankVolume,
                 Color,
