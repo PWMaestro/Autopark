@@ -8,17 +8,9 @@ namespace Autopark
 {
     public static class Printer
     {
-        public static void PrintArray(Array arr)
+        public static void PrintArray(IEnumerable<Vehicle> collection)
         {
-            foreach (var item in arr)
-            {
-                Console.WriteLine(item);
-            }
-        }
-
-        public static void PrintHashSet(HashSet<Vehicle> hashSet)
-        {
-            foreach (var item in hashSet)
+            foreach (var item in collection)
             {
                 Console.WriteLine(item);
             }
