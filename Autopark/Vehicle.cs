@@ -130,9 +130,6 @@ namespace Autopark
                 && ModelName.Equals(vehicle.ModelName);
         }
 
-        public int CompareTo(Vehicle vehicle)
-        {
-            return GetCalcTaxPerMonth().CompareTo(vehicle.GetCalcTaxPerMonth());
-        }
+        public int CompareTo(Vehicle vehicle) => GetCalcTaxPerMonth().CompareTo(vehicle.GetCalcTaxPerMonth());
     }
 }
