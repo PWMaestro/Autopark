@@ -15,5 +15,13 @@ namespace Autopark
                 Console.WriteLine(item);
             }
         }
+
+        public static void PrintHashSet(HashSet<Vehicle> hashSet)
+        {
+            foreach (var item in hashSet)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }

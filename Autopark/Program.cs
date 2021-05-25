@@ -9,9 +9,9 @@ namespace Autopark
             Printer.PrintArray(Vehicle.vehicles);
             Console.WriteLine();
             var vehicles = Vehicle.GetSameVehicles();
-            if (vehicles.Length != 0)
+            if (vehicles.Count != 0)
             {
-                Printer.PrintArray(vehicles);
+                Printer.PrintHashSet(vehicles);
             }
             else
             {
