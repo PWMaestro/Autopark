@@ -9,13 +9,13 @@ namespace Autopark
     public class Vehicle : IComparable<Vehicle>
     {
         public static readonly Vehicle[] vehicles = new Vehicle[] {
-            new Vehicle(VehicleType.vehicleTypes[0],"VW Crafter", "5427 AX-7", 2022, 2015, 376000, Color.Blue),
-            new Vehicle(VehicleType.vehicleTypes[0],"VW Crafter", "6427 AA-7", 2500, 2014, 227010, Color.White),
-            new Vehicle(VehicleType.vehicleTypes[0],"Electric Bus E321", "6785 BA-7", 12080, 2019, 20451, Color.Green),
-            new Vehicle(VehicleType.vehicleTypes[1],"Golf 5", "8682 AX-7", 1200, 2006, 230451, Color.Gray),
-            new Vehicle(VehicleType.vehicleTypes[1],"Tesla Model S 70 D", "E001 AA-7", 2200, 2019, 10454, Color.White),
-            new Vehicle(VehicleType.vehicleTypes[2],"Hamm HD 12 VV", null, 3000, 2016, 122, Color.Yellow),
-            new Vehicle(VehicleType.vehicleTypes[2],"МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Color.Red)
+            new Vehicle(VehicleType.vehicleTypes[0], new GasolineEngine(2, 8.1),"VW Crafter", "5427 AX-7", 2022, 2015, 376000, Color.Blue),
+            new Vehicle(VehicleType.vehicleTypes[0], new GasolineEngine(2, 8.5),"VW Crafter", "6427 AA-7", 2500, 2014, 227010, Color.White),
+            new Vehicle(VehicleType.vehicleTypes[0], new ElectricalEngine(50),"Electric Bus E321", "6785 BA-7", 12080, 2019, 20451, Color.Green),
+            new Vehicle(VehicleType.vehicleTypes[1], new DieselEngine(1.6, 7.2),"Golf 5", "8682 AX-7", 1200, 2006, 230451, Color.Gray),
+            new Vehicle(VehicleType.vehicleTypes[1], new ElectricalEngine(25),"Tesla Model S 70 D", "E001 AA-7", 2200, 2019, 10454, Color.White),
+            new Vehicle(VehicleType.vehicleTypes[2], new DieselEngine(3.2, 25),"Hamm HD 12 VV", null, 3000, 2016, 122, Color.Yellow),
+            new Vehicle(VehicleType.vehicleTypes[3], new DieselEngine(4.75, 20.1),"МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Color.Red)
         };
         public VehicleType Type { get; }
         public string ModelName { get; }
@@ -24,6 +24,7 @@ namespace Autopark
         public double TankVolume { get; set; }
         public double Mileage { get; set; }
         public double Weight { get; set; }
+        public Engine EngineType { get; set; }
         public Color Color { get; set; }
 
         public Vehicle()
@@ -32,6 +33,7 @@ namespace Autopark
 
         public Vehicle(
             VehicleType type,
+            Engine engineType,
             string modelName,
             string registrationNumber,
             double weight,
@@ -40,6 +42,7 @@ namespace Autopark
             Color color) 
         {
             Type = type;
+            EngineType = engineType;
             ModelName = modelName;
             RegistrationNumber = registrationNumber;
             Weight = weight;
@@ -99,6 +102,11 @@ namespace Autopark
                 Color,
                 GetCalcTaxPerMonth().ToString("0.00")
             );
+        }
+
+        public bool Equals(Vehicle anotherVehicle)
+        {
+            return Type.TypeName.Equals(anotherVehicle.Type.TypeName) && ModelName.Equals(anotherVehicle.ModelName);
         }
 
         public int CompareTo(Vehicle vehicle)
