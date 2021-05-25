@@ -8,6 +8,12 @@ namespace Autopark
 {
     public class VehicleType
     {
+        public static readonly VehicleType[] vehicleTypes = new VehicleType[] {
+            new VehicleType("Bus", 1.2),
+            new VehicleType("Car", 1.0),
+            new VehicleType("Rink", 1.5),
+            new VehicleType("Tractor", 1.2)
+        };
         public string TypeName { get; set; }
         public double TaxCoefficient { get; set; }
 
