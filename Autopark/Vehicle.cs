@@ -83,6 +83,44 @@ namespace Autopark
             return vehicles[indexOfMaxMileage];
         }
 
+        public static bool IsSameVehiclesExist()
+        {
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                for (int j = i + 1; j < vehicles.Length; j++)
+                {
+                    if (vehicles[i].Equals(vehicles[j]))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private static Vehicle[] GetSameVehiclesIndexes()
+        {
+            List<Vehicle> sameVehicles = new();
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                for (int j = i + 1; j < vehicles.Length; j++)
+                {
+                    if (vehicles[i].Equals(vehicles[j]))
+                    {
+                        if (!sameVehicles.Contains(vehicles[i]))
+                        {
+                            sameVehicles.Add(vehicles[i]);
+                        }
+                        else if (!sameVehicles.Contains(vehicles[j]))
+                        {
+                            sameVehicles.Add(vehicles[j]);
+                        }
+                    }
+                }
+            }
+            return sameVehicles.ToArray();
+        }
+
         public double GetCalcTaxPerMonth()
         {   
             return this.Weight * 0.0013 + Type.TaxCoefficient * 30 + 5;
