@@ -39,13 +39,13 @@ namespace Autopark
             double mileage,
             Color color) 
         {
-            this.Type = type;
-            this.ModelName = modelName;
-            this.RegistrationNumber = registrationNumber;
-            this.Weight = weight;
-            this.ManufactureYear = manufactureYear;
-            this.Mileage = mileage;
-            this.Color = color;
+            Type = type;
+            ModelName = modelName;
+            RegistrationNumber = registrationNumber;
+            Weight = weight;
+            ManufactureYear = manufactureYear;
+            Mileage = mileage;
+            Color = color;
         }
 
         public static Vehicle GetVehicleWithMinMileage()
