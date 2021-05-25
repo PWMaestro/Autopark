@@ -62,6 +62,38 @@ namespace Autopark
             this.Color = color;
         }
 
+        public static Vehicle GetVehicleWithMinMileage()
+        {
+            int indexOfMinMileage = 0;
+            double minMileage = vehicles[0].Mileage;
+
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                if (minMileage > vehicles[i].Mileage)
+                {
+                    minMileage = vehicles[i].Mileage;
+                    indexOfMinMileage = i;
+                }
+            }
+            return vehicles[indexOfMinMileage];
+        }
+
+        public static Vehicle GetVehicleWithMaxMileage()
+        {
+            int indexOfMaxMileage = 0;
+            double maxMileage = vehicles[0].Mileage;
+
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                if (maxMileage < vehicles[i].Mileage)
+                {
+                    maxMileage = vehicles[i].Mileage;
+                    indexOfMaxMileage = i;
+                }
+            }
+            return vehicles[indexOfMaxMileage];
+        }
+
         public double GetCalcTaxPerMonth()
         {   
             return this.Weight * 0.0013 + type.TaxCoefficient * 30 + 5;
