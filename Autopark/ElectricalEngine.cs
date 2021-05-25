@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    class ElectricalEngine : Engine
+    public class ElectricalEngine : Engine
     {
         public double ElectricityConsumption { get; set; }
 
