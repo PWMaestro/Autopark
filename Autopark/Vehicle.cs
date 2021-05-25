@@ -104,9 +104,12 @@ namespace Autopark
             );
         }
 
-        public bool Equals(Vehicle anotherVehicle)
+        public override bool Equals(object obj)
         {
-            return Type.TypeName.Equals(anotherVehicle.Type.TypeName) && ModelName.Equals(anotherVehicle.ModelName);
+            Vehicle vehicle = obj as Vehicle;
+            return vehicle != null
+                && Type.TypeName.Equals(vehicle.Type.TypeName)
+                && ModelName.Equals(vehicle.ModelName);
         }
 
         public int CompareTo(Vehicle vehicle)
