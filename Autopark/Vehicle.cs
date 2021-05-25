@@ -134,7 +134,7 @@ namespace Autopark
 
         public double GetCalcTaxPerMonth()
         {   
-            return this.Weight * 0.0013 + Type.TaxCoefficient * EngineType.TaxCoeffByEngineType * 30 + 5;
+            return Weight * 0.0013 + Type.TaxCoefficient * EngineType.TaxCoeffByEngineType * 30 + 5;
         }
 
         public override string ToString()
