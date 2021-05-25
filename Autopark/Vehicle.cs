@@ -98,27 +98,38 @@ namespace Autopark
             return false;
         }
 
-        public static Vehicle[] GetSameVehicles()
+        private static int[] GetSameVehiclesIndexes()
         {
-            List<Vehicle> sameVehicles = new();
+            List<int> indexes = new();
             for (int i = 0; i < vehicles.Length; i++)
             {
                 for (int j = i + 1; j < vehicles.Length; j++)
                 {
                     if (vehicles[i].Equals(vehicles[j]))
                     {
-                        if (!sameVehicles.Contains(vehicles[i]))
+                        if (!indexes.Contains(i))
                         {
-                            sameVehicles.Add(vehicles[i]);
+                            indexes.Add(i);
                         }
-                        else if (!sameVehicles.Contains(vehicles[j]))
+                        if (!indexes.Contains(j))
                         {
-                            sameVehicles.Add(vehicles[j]);
+                            indexes.Add(j);
                         }
                     }
                 }
             }
-            return sameVehicles.ToArray();
+            return indexes.ToArray();
+        }
+
+        public static Vehicle[] GetSameVehicles()
+        {
+            int[] sameVehiclesIndexes = GetSameVehiclesIndexes();
+            Vehicle[] sameVehicles = new Vehicle[sameVehiclesIndexes.Length];
+            for (int i = 0; i < sameVehicles.Length; i++)
+            {
+                sameVehicles[i] = vehicles[sameVehiclesIndexes[i]];
+            }
+            return sameVehicles;
         }
 
         public double GetCalcTaxPerMonth()
