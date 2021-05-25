@@ -6,20 +6,6 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    public enum Color
-    {
-        Black,
-        Red,
-        Orange,
-        Yellow,
-        Green,
-        Cyan,
-        Blue,
-        Violet,
-        Gray,
-        White
-    }
-
     public class Vehicle : IComparable<Vehicle>
     {
         public static readonly Vehicle[] vehicles = new Vehicle[] {
