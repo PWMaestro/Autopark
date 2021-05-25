@@ -98,7 +98,7 @@ namespace Autopark
             return false;
         }
 
-        private static Vehicle[] GetSameVehiclesIndexes()
+        public static Vehicle[] GetSameVehicles()
         {
             List<Vehicle> sameVehicles = new();
             for (int i = 0; i < vehicles.Length; i++)
