@@ -11,7 +11,7 @@ namespace Autopark
             var vehicles = Vehicle.GetSameVehicles();
             if (vehicles.Count != 0)
             {
-                Printer.PrintArray(vehicles);
+                Printer.PrintTurpleArray(vehicles);
             }
             else
             {

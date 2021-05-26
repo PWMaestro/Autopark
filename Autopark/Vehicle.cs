@@ -83,17 +83,16 @@ namespace Autopark
             return vehicles[indexOfMaxMileage];
         }
 
-        public static HashSet<Vehicle> GetSameVehicles()
+        public static HashSet<(Vehicle, Vehicle)> GetSameVehicles()
         {
-            HashSet<Vehicle> vehicles = new();
+            HashSet<(Vehicle, Vehicle)> vehicles = new();
             for (int i = 0; i < Vehicle.vehicles.Length; i++)
             {
                 for (int j = i + 1; j < Vehicle.vehicles.Length; j++)
                 {
                     if (Vehicle.vehicles[i].Equals(Vehicle.vehicles[j]))
                     {
-                        vehicles.Add(Vehicle.vehicles[i]);
-                        vehicles.Add(Vehicle.vehicles[j]);
+                        vehicles.Add((Vehicle.vehicles[i], Vehicle.vehicles[j]));
                     }
                 }
             }
