@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Autopark
 {
-    public class ElectricalEngine : Engine
+    public class ElectricalEngine : AbstractEngine
     {
-        public double ElectricityConsumption { get; set; }
+        public double ElectricityConsumption { get; }
 
         public ElectricalEngine(double electricityConsumption)
             : base("Electrical", 0.1)
@@ -16,9 +16,8 @@ namespace Autopark
             ElectricityConsumption = electricityConsumption;
         }
 
-        public double GetMaxKilometers(double batterySize)
-        {
-            return batterySize / ElectricityConsumption;
-        }
+        public override double GetMaxKilometers(double batterySize) => batterySize / ElectricityConsumption;
+
+        public override string ToString() => $"{base.ToString()} ({ElectricityConsumption})";
     }
 }
