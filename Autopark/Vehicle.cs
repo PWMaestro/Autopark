@@ -8,6 +8,10 @@ namespace Autopark
 {
     public class Vehicle : IComparable<Vehicle>
     {
+        private const int TaxMultiplier = 30;
+        private const int TaxBasicShift = 5;
+        private const double WeightCoefficient = 0.0013;
+
         public static readonly Vehicle[] vehicles = new Vehicle[] {
             new Vehicle(VehicleType.vehicleTypes[0], new GasolineEngine(2, 8.1),"VW Crafter", "5427 AX-7", 2022, 2015, 376000, 75, Color.Blue),
             new Vehicle(VehicleType.vehicleTypes[0], new GasolineEngine(2, 8.5),"VW Crafter", "6427 AA-7", 2500, 2014, 227010, 75, Color.White),
@@ -118,7 +122,9 @@ namespace Autopark
 
         public double GetCalcTaxPerMonth()
         {   
-            return Weight * 0.0013 + Type.TaxCoefficient * EngineType.TaxCoeffByEngineType * 30 + 5;
+            return Weight * WeightCoefficient
+                 + Type.TaxCoefficient * EngineType.TaxCoeffByEngineType * TaxMultiplier
+                 + TaxBasicShift;
         }
 
         public override string ToString()
