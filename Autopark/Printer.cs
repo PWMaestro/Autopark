@@ -8,11 +8,20 @@ namespace Autopark
 {
     public static class Printer
     {
-        public static void PrintArray(Array arr)
+        public static void PrintArray(IEnumerable<Vehicle> collection)
         {
-            foreach (var item in arr)
+            foreach (var item in collection)
             {
                 Console.WriteLine(item);
+            }
+        }
+
+        public static void PrintTurpleArray(IEnumerable<(Vehicle, Vehicle)> collection)
+        {
+            foreach (var item in collection)
+            {
+                Console.WriteLine(item.Item1);
+                Console.WriteLine(item.Item2);
             }
         }
     }
