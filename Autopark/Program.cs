@@ -8,15 +8,7 @@ namespace Autopark
         {
             Printer.PrintArray(Vehicle.vehicles);
             Console.WriteLine();
-            var vehicles = Vehicle.GetSameVehicles();
-            if (vehicles.Count != 0)
-            {
-                Printer.PrintTurpleArray(vehicles);
-            }
-            else
-            {
-                Console.WriteLine("There is no same vehicles!");
-            }
+            Console.WriteLine(Vehicle.GetVehicleWithMaxMileageOnOneFilling());
         }
     }
 }
