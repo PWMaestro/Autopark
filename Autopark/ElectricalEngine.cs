@@ -18,6 +18,6 @@ namespace Autopark
 
         public override double GetMaxKilometers(double batterySize) => batterySize / ElectricityConsumption;
 
-        public override string ToString() => $"{base.ToString()} ({ElectricityConsumption})";
+        public override string ToString() => $"{base.ToString()} {ElectricityConsumption}";
     }
 }

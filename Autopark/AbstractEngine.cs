@@ -13,7 +13,7 @@ namespace Autopark
 
         protected AbstractEngine(string engineType, double taxCoeffByEngineType)
         {
-            TypeName = $"{engineType} engine";
+            TypeName = $"{engineType} {EngineTypes.basicName}";
             TaxCoeffByEngineType = taxCoeffByEngineType;
         }
 
