@@ -11,7 +11,7 @@ namespace Autopark
         public double ElectricityConsumption { get; }
 
         public ElectricalEngine(double electricityConsumption)
-            : base("Electrical", 0.1)
+            : base(EngineTypes.Electrical, 0.1)
         {
             ElectricityConsumption = electricityConsumption;
         }

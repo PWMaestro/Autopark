@@ -147,14 +147,12 @@ namespace Autopark
         private static AbstractEngine GetEngineByString(string engineString)
         {
             AbstractEngine engine = null;
-            string[] engineStringPieces = engineString
-                .Replace(EngineTypes.basicName, "")
-                .Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            string engineType = engineStringPieces[0];
+            string[] engineStringPieces = engineString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var engineType = Enum.Parse<EngineTypes>(engineStringPieces[0]);
 
             switch (engineType)
             {
-                case EngineTypes.gasoline:
+                case EngineTypes.Gasoline:
                     engine = new GasolineEngine
                     (
                         double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture),
@@ -162,7 +160,7 @@ namespace Autopark
                     );
                     break;
 
-                case EngineTypes.diesel:
+                case EngineTypes.Diesel:
                     engine = new DieselEngine
                     (
                         double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture),
@@ -170,7 +168,7 @@ namespace Autopark
                     );
                     break;
 
-                case EngineTypes.electrical:
+                case EngineTypes.Electrical:
                     engine = new ElectricalEngine
                     (
                         double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture)

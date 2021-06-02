@@ -9,7 +9,7 @@ namespace Autopark
     public class DieselEngine : AbstractCombustionEngine
     {
         public DieselEngine(double engineVolume, double fuelConsumptionPer100Km)
-                : base("Diesel", 1.2)
+                : base(EngineTypes.Diesel, 1.2)
         {
             EngineVolume = engineVolume;
             FuelConsumptionPer100Km = fuelConsumptionPer100Km;
