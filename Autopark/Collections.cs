@@ -32,8 +32,8 @@ namespace Autopark
             vehicleTypesFilePath = vehicleTypesFileName + FileExtension;
 
             Rents = LoadRents(rentsListFilePath);
-            Vehicles = LoadVehicles(vehiclesFilePath);
             VehicleTypes = LoadTypes(vehicleTypesFilePath);
+            Vehicles = LoadVehicles(vehiclesFilePath);
         }
 
         public List<VehicleType> LoadTypes(string inFile)
@@ -111,7 +111,7 @@ namespace Autopark
             var vehicle = new Vehicle
             (
                 int.Parse(data[0]),
-                GetVehicleTypeById(VehicleTypes, int.Parse(data[1])),
+                GetVehicleTypeById(int.Parse(data[1])),
                 GetEngineByString(data[2]),
                 data[3],
                 data[4],
@@ -180,9 +180,9 @@ namespace Autopark
             return engine;
         }
         
-        private static VehicleType GetVehicleTypeById(List<VehicleType> typesList, int id)
+        private VehicleType GetVehicleTypeById(int id)
         {
-            foreach (var type in typesList)
+            foreach (var type in VehicleTypes)
             {
                 if (type.Id == id)
                 {
@@ -255,3 +255,4 @@ namespace Autopark
         }
     }
 }
+ 
