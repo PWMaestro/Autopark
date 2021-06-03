@@ -11,7 +11,6 @@ namespace Autopark
     public class Collections
     {
         private const string FileExtension = ".csv";
-        private const string FilePrefix = @"..\..\..\";
         private const string ErrorMessage = "Error! Can not find the file: ";
 
         private readonly string vehiclesFilePath;
@@ -28,9 +27,9 @@ namespace Autopark
             Vehicles = new List<Vehicle>();
             VehicleTypes = new List<VehicleType>();
 
-            vehiclesFilePath = FilePrefix + vehiclesFileName + FileExtension;
-            rentsListFilePath = FilePrefix + rentsListFileName + FileExtension;
-            vehicleTypesFilePath = FilePrefix + vehicleTypesFileName + FileExtension;
+            vehiclesFilePath = vehiclesFileName + FileExtension;
+            rentsListFilePath = rentsListFileName + FileExtension;
+            vehicleTypesFilePath = vehicleTypesFileName + FileExtension;
 
             Rents = LoadRents(rentsListFilePath);
             Vehicles = LoadVehicles(vehiclesFilePath);
