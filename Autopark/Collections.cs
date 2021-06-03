@@ -111,7 +111,7 @@ namespace Autopark
             var vehicle = new Vehicle
             (
                 int.Parse(data[0]),
-                GetVehicleTypeById(LoadTypes(vehicleTypesFilePath), int.Parse(data[1])),
+                GetVehicleTypeById(VehicleTypes, int.Parse(data[1])),
                 GetEngineByString(data[2]),
                 data[3],
                 data[4],
