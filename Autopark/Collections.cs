@@ -10,9 +10,9 @@ namespace Autopark
 {
     public class Collections
     {
-        private static readonly string fileExtension = ".csv";
-        private static readonly string filePrefix = @"..\..\..\";
-        private static readonly string errorMessage = "Error! Can not find the file: ";
+        private const string FileExtension = ".csv";
+        private const string FilePrefix = @"..\..\..\";
+        private const string ErrorMessage = "Error! Can not find the file: ";
 
         private readonly string vehiclesFilePath;
         private readonly string rentsListFilePath;
@@ -28,9 +28,9 @@ namespace Autopark
             Vehicles = new List<Vehicle>();
             VehicleTypes = new List<VehicleType>();
 
-            vehiclesFilePath = filePrefix + vehiclesFileName + fileExtension;
-            rentsListFilePath = filePrefix + rentsListFileName + fileExtension;
-            vehicleTypesFilePath = filePrefix + vehicleTypesFileName + fileExtension;
+            vehiclesFilePath = FilePrefix + vehiclesFileName + FileExtension;
+            rentsListFilePath = FilePrefix + rentsListFileName + FileExtension;
+            vehicleTypesFilePath = FilePrefix + vehicleTypesFileName + FileExtension;
 
             Rents = LoadRents(rentsListFilePath);
             Vehicles = LoadVehicles(vehiclesFilePath);
@@ -51,7 +51,7 @@ namespace Autopark
             }
             else
             {
-                Console.WriteLine(errorMessage + inFile);
+                Console.WriteLine(ErrorMessage + inFile);
             }
             return typesList;
         }
@@ -70,7 +70,7 @@ namespace Autopark
             }
             else
             {
-                Console.WriteLine(errorMessage + inFile);
+                Console.WriteLine(ErrorMessage + inFile);
             }
             return vehicleList;
         }
@@ -89,7 +89,7 @@ namespace Autopark
             }
             else
             {
-                Console.WriteLine(errorMessage + inFile);
+                Console.WriteLine(ErrorMessage + inFile);
             }
             return rentsList;
         }
