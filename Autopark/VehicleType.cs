@@ -9,26 +9,32 @@ namespace Autopark
     public class VehicleType
     {
         public static readonly VehicleType[] vehicleTypes = new VehicleType[] {
-            new VehicleType("Bus", 1.2),
-            new VehicleType("Car", 1.0),
-            new VehicleType("Rink", 1.5),
-            new VehicleType("Tractor", 1.2)
+            new VehicleType(1, "Bus", 1.2),
+            new VehicleType(2, "Car", 1.0),
+            new VehicleType(3, "Rink", 1.5),
+            new VehicleType(4, "Tractor", 1.2)
         };
+        public int Id { get; set; }
         public string TypeName { get; set; }
         public double TaxCoefficient { get; set; }
 
-        public VehicleType(string type, double taxCoefficient = 1.0)
+        public VehicleType()
         {
-            this.TypeName = type;
-            this.TaxCoefficient = taxCoefficient;
+        }
+
+        public VehicleType(int id, string type, double taxCoefficient = 1.0)
+        {
+            Id = id;
+            TypeName = type;
+            TaxCoefficient = taxCoefficient;
         }
 
         public void Display()
         {
             Console.WriteLine(
                 "TypeName = {0}\nTaxCoefficient = {1}",
-                this.TypeName,
-                this.TaxCoefficient
+                TypeName,
+                TaxCoefficient
             );
         }
 
