@@ -18,6 +18,6 @@ namespace Autopark
 
         public override double GetMaxKilometers(double fuelTankCapacity) => fuelTankCapacity * 100.0 / FuelConsumptionPer100Km;
 
-        public override string ToString() => $"{base.ToString()} {EngineVolume} {FuelConsumptionPer100Km}".Replace(",", ".");
+        public override string ToString() => $"{base.ToString()} {EngineVolume} {FuelConsumptionPer100Km}";
     }
 }

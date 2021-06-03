@@ -100,9 +100,9 @@ namespace Autopark
 
             return new VehicleType
             (
-                int.Parse(data[0], CultureInfo.InvariantCulture),
+                int.Parse(data[0]),
                 data[1],
-                double.Parse(data[2], CultureInfo.InvariantCulture)
+                double.Parse(data[2])
             );
         }
         
@@ -116,10 +116,10 @@ namespace Autopark
                 GetEngineByString(data[2]),
                 data[3],
                 data[4],
-                double.Parse(data[5], CultureInfo.InvariantCulture),
+                double.Parse(data[5]),
                 int.Parse(data[6]),
-                double.Parse(data[7], CultureInfo.InvariantCulture),
-                double.Parse(data[8], CultureInfo.InvariantCulture),
+                double.Parse(data[7]),
+                double.Parse(data[8]),
                 Enum.Parse<Color>(data[9])
             );
             foreach (var rent in Rents)
@@ -139,8 +139,8 @@ namespace Autopark
             return new Rent
             (
                 int.Parse(data[0]),
-                DateTime.Parse(data[1]),
-                double.Parse(data[2], CultureInfo.InvariantCulture)
+                DateTime.ParseExact(data[1], "dd.MM.yyyy", CultureInfo.CurrentCulture),
+                double.Parse(data[2])
             );
         }
 
@@ -155,23 +155,23 @@ namespace Autopark
                 case EngineTypes.Gasoline:
                     engine = new GasolineEngine
                     (
-                        double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture),
-                        double.Parse(engineStringPieces[2], CultureInfo.InvariantCulture)
+                        double.Parse(engineStringPieces[1]),
+                        double.Parse(engineStringPieces[2])
                     );
                     break;
 
                 case EngineTypes.Diesel:
                     engine = new DieselEngine
                     (
-                        double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture),
-                        double.Parse(engineStringPieces[2], CultureInfo.InvariantCulture)
+                        double.Parse(engineStringPieces[1]),
+                        double.Parse(engineStringPieces[2])
                     );
                     break;
 
                 case EngineTypes.Electrical:
                     engine = new ElectricalEngine
                     (
-                        double.Parse(engineStringPieces[1], CultureInfo.InvariantCulture)
+                        double.Parse(engineStringPieces[1])
                     );
                     break;
 

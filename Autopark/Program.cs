@@ -9,6 +9,8 @@ namespace Autopark
     {
         static void Main(string[] args)
         {
+            CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+
             var autopark = new Collections("types", "vehicles", "rents");
 
             autopark.Print();
