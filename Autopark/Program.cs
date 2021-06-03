@@ -96,6 +96,12 @@ namespace Autopark
                 Console.WriteLine("Car lefts a garage:");
                 Console.WriteLine(stack.Pop());
             }
+
+            Console.WriteLine(Environment.NewLine
+                + "-------- -------- DICTIONARY -------- --------");
+            var sparePartsList = new SparePartsDictionary("orders");
+
+            sparePartsList.Print();
         }
     }
 }
