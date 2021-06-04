@@ -11,8 +11,6 @@ namespace Autopark
         where T : class
     {
         protected T[] _array;
-        //protected int Count;
-
         public int Count { get; protected set; }
 
         protected AbstractCollection()
