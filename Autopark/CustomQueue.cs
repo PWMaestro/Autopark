@@ -18,11 +18,11 @@ namespace Autopark
         public T Dequeue()
         {
             T firstItem = _array[0];
-            for (int i = 1; i < _pointer; i++)
+            for (int i = 1; i < Count; i++)
             {
                 _array[i - 1] = _array[i];
             }
-            _array[--_pointer] = default;
+            _array[--Count] = default;
             return firstItem;
         }
     }

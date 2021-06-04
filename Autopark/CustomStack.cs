@@ -17,8 +17,8 @@ namespace Autopark
 
         public T Pop()
         {
-            T lastItem = _array[--_pointer];
-            _array[_pointer] = default;
+            T lastItem = _array[--Count];
+            _array[Count] = default;
             return lastItem;
         }
     }
