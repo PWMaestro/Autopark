@@ -49,7 +49,59 @@ namespace Autopark
 
             autopark.Sort(new VehicleComparer());
             autopark.Print();
-            
+
+            Console.WriteLine(Environment.NewLine + "-------- -------- QUEUE -------- --------");
+            var queue = new CustomQueue<Vehicle>();
+
+            Console.WriteLine();
+            foreach (var vehicle in Vehicle.vehicles)
+            {
+                Console.WriteLine("Car gets into car wash:");
+                Console.WriteLine(vehicle);
+                queue.Enqueue(vehicle);
+            }
+
+            Console.WriteLine();
+            foreach (var vehicle in queue)
+            {
+                Console.WriteLine($"Vehicle {vehicle} is washing now.");
+            }
+
+            Console.WriteLine();
+            while (queue.Count != 0)
+            {
+                Console.WriteLine("Car lefts a car wash:");
+                Console.WriteLine(queue.Dequeue());
+            }
+
+            Console.WriteLine(Environment.NewLine + "-------- -------- STACK -------- --------");
+            var stack = new CustomStack<Vehicle>();
+
+            Console.WriteLine();
+            foreach (var vehicle in Vehicle.vehicles)
+            {
+                Console.WriteLine("Car gets into garage:");
+                Console.WriteLine(vehicle);
+                stack.Push(vehicle);
+            }
+
+            var mySuperCar = Vehicle.vehicles[3];
+            Console.WriteLine();
+            Console.WriteLine($"Does garage contain this car:\n{mySuperCar}\n???");
+            Console.WriteLine(stack.Contains(mySuperCar));
+            Console.WriteLine();
+
+            while (stack.Count != 0)
+            {
+                Console.WriteLine("Car lefts a garage:");
+                Console.WriteLine(stack.Pop());
+            }
+
+            Console.WriteLine(Environment.NewLine
+                + "-------- -------- DICTIONARY -------- --------");
+            var sparePartsList = new SparePartsDictionary("orders");
+
+            sparePartsList.Print();
         }
     }
 }
